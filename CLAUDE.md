@@ -97,3 +97,6 @@ is a CSS variant and is fine to keep.)
 
 ## Testimonial card background (14 Jun 2026)
 - `.testimonial-slider_card` now uses `gen_testimonial-bg.jpg` (clinic + greenery) under a cyan/teal overlay (blue overlay on the blue variant); card text forced white. CSS cache-bust at `?v=20260614c`.
+
+## Team section background (14 Jun 2026)
+- `.section_team` now uses `gen_team-bg.jpg` (clinic + window plants) under a cyan/teal overlay (blue on variant). Header text (`.home-team_header-title/-para`, `.section_tag`) forced white; `.text-highlighted` lightened. Doctor name plates stay dark. CSS cache-bust `?v=20260614d`.

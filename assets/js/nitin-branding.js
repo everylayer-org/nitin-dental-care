@@ -2,17 +2,8 @@
   var brandFull = "Nitin Dental Care";
   var brandShort = "Nitin Dental";
   var contactName = "Nitin";
-  var contactEmail = "nitin.devsecops@gmail.com";
-  var bookingHref =
-    "mailto:" +
-    contactEmail +
-    "?subject=Book%20a%20Visit%20-%20Nitin%20Dental%20Care";
-  var callHref =
-    "mailto:" + contactEmail + "?subject=Call%20Request%20-%20Nitin";
-  var appointmentHref =
-    "mailto:" +
-    contactEmail +
-    "?subject=Dental%20Appointment%20-%20Nitin%20Dental%20Care&body=";
+  var bookingHref = "#";
+  var callHref = "#";
 
   function swapText(value) {
     if (!value) return value;
@@ -24,7 +15,7 @@
       .split("Shreyas Raj")
       .join(contactName)
       .split("hello@lumoradental.com")
-      .join(contactEmail)
+      .join("Contact " + contactName)
       .split("+91 9307512816")
       .join("Contact " + contactName)
       .split("+919307512816")
@@ -64,8 +55,7 @@
       }
 
       if (href.indexOf("mailto:hello@lumoradental.com") === 0) {
-        var query = href.indexOf("?") !== -1 ? href.slice(href.indexOf("?")) : "";
-        anchor.setAttribute("href", "mailto:" + contactEmail + query);
+        anchor.setAttribute("href", callHref);
       }
 
       if (
@@ -78,7 +68,7 @@
 
     document.querySelectorAll(".our-info_item-link[href^='mailto:']").forEach(function (anchor) {
       if ((anchor.textContent || "").toLowerCase().indexOf("email") !== -1) {
-        setAnchorCopy(anchor, "Email: " + contactEmail);
+        setAnchorCopy(anchor, "Email: Contact " + contactName);
       }
     });
 
@@ -89,7 +79,7 @@
     });
 
     document.querySelectorAll(".footer-contact_link[href^='mailto:']").forEach(function (anchor, index) {
-      setAnchorCopy(anchor, index === 0 ? "Contact " + contactName : contactEmail);
+      setAnchorCopy(anchor, "Contact " + contactName);
     });
   }
 
@@ -138,18 +128,6 @@
     if (!name || !phone) {
       return false;
     }
-    var message = encodeURIComponent(
-      "Hi " +
-        contactName +
-        ", I'm " +
-        name +
-        ". Please contact me at " +
-        phone +
-        " about a dental appointment."
-    );
-    try {
-      window.open(appointmentHref + message, "_blank");
-    } catch (_) {}
     var card = form.closest(".lead-form_card");
     if (card) {
       form.style.display = "none";
